@@ -3,7 +3,9 @@
     padding: 0;
 }
 body{
-    background: linear-gradient(180deg, #B9DA7B, white) no-repeat;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#B9DA7B), to(white));
+    background: -webkit-linear-gradient(180deg, #B9DA7B, #white);
+    background: linear-gradient(180deg, #B9DA7B, white);
     font-family: sans-serif;
 }
 h1{
