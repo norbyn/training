@@ -17,7 +17,7 @@ define("app/nls/en/Form", ({
     uploadPhotoLabel: "Upload Photo",
     uploadLabel: "Upload",
     membershipLabel: "Membership Number",
-    addNewPersonButton: "Add Another Person",
+    addNewPersonButton: "Save",
     backButton: "Back",
     orLabel: "or",
     continueButton: "Continue",

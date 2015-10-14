@@ -10,7 +10,7 @@ define([
     "dijit/Menu",
     "dijit/MenuItem"
 ], function (declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin,
-             template ,on, query, config) {
+             template, on, query, config) {
     return declare('app.Lang', [_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
         templateString: template,
         postCreate: function () {

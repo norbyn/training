@@ -2,164 +2,198 @@
     <h1>${Translate.title}</h1>
 
     <div class="container">
-        <div data-dojo-type="dijit.form.Form" id="dataForm" data-dojo-id="dataForm">
-            <div class="form-input">
-                <h4 id="formTitle">${Translate.formTitle}</h4>
+        <form id="dataForm" data-dojo-type="dijit.form.Form" data-dojo-id="dataForm" encType="multipart/form-data"
+              method="" action="">
+            <div class="fieldset-wrapper ${Translate.$locale}">
+                <div class="form-input">
+                    <h4 id="formTitle">${Translate.formTitle}</h4>
 
-                <div class="form-body">
-                    <div class="form-group">
-                        <label class="col-label control-label"><b class="required">*</b>${Translate.emailLabel}</label>
+                    <div class="form-body">
+                        <div class="row">
+                            <label class="col-label control-label"><b
+                                    class="required">*</b>${Translate.emailLabel}</label>
 
-                        <div class="col-input" id="email">
-                            <input class="form-control input-sm" name="email" required
-                                   data-dojo-attach-point="_email"
-                                   data-dojo-type="dijit.form.ValidationTextBox"
-                                   data-dojo-props="validator:dojox.validate.isEmailAddress, invalidMessage: '${Translate.invalidMessage}',
-                                      missingMessage: '${Translate.missingMessage}'"/>
-                            <output id="email_confirm"></output>
+                            <div class="col-input">
+                                <input class="form-control input-sm no-confirmation" name="email"
+                                       data-dojo-attach-point="_email"
+                                       data-dojo-type="dijit.form.ValidationTextBox"
+                                       data-dojo-props="validator:dojox.validate.isEmailAddress"/>
+
+                                <div id="emailConfirm" class="hiddenLabel confirmation"></div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <label class="col-label control-label"><b
+                                    class="required">*</b>${Translate.firstnameLabel}</label>
+
+                            <div class="col-input-md">
+                                <input class="form-control input-sm no-confirmation" name="firstname" type="text"
+                                       data-dojo-attach-point="_firstname"
+                                       data-dojo-type="dijit/form/ValidationTextBox"
+                                       data-dojo-props="required:true"/>
+
+                                <div id="firstnameConfirm" class="hiddenLabel confirmation"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-label control-label"><b
+                                    class="required">*</b>${Translate.surnameLabel}</label>
+
+                            <div class="col-input-md">
+                                <input class="form-control input-sm no-confirmation" name="surname" type="text"
+                                       data-dojo-attach-point="_surname"
+                                       data-dojo-type="dijit/form/ValidationTextBox"
+                                       data-dojo-props="required:true"/>
+
+                                <div id="surnameConfirm" class="hiddenLabel confirmation"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-label control-label"><b
+                                    class="required"></b>${Translate.companyLabel}</label>
+
+                            <div class="col-input">
+                                <input class="form-control input-sm no-confirmation" name="company" type="text"
+                                       data-dojo-attach-point="_company"
+                                       data-dojo-type="dijit/form/TextBox"/>
+
+                                <div id="companyConfirm" class="hiddenLabel confirmation"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-label control-label"><b
+                                    class="required">*</b>${Translate.addressLineLabel}</label>
+
+                            <div class="col-input">
+                                <input class="form-control input-sm no-confirmation" name="address" type="text"
+                                       data-dojo-attach-point="_address"
+                                       data-dojo-type="dijit/form/ValidationTextBox"
+                                       data-dojo-props="required:true"/>
+
+                                <div id="addressConfirm" class="hiddenLabel confirmation"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-label control-label"><b
+                                    class="required">*</b>${Translate.cityLabel}</label>
+
+                            <div class="col-input-md2">
+                                <input class="form-control input-sm no-confirmation" name="city" type="text"
+                                       data-dojo-attach-point="_city"
+                                       data-dojo-type="dijit/form/ValidationTextBox"
+                                       data-dojo-props="required:true"/>
+
+                                <div id="cityConfirm" class="hiddenLabel confirmation"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-label control-label"><b
+                                    class="required">*</b>${Translate.postcodeLabel}</label>
+
+                            <div class="col-input-sm2">
+                                <input class="form-control input-sm no-confirmation" name="postcode" type="text"
+                                       data-dojo-attach-point="_postcode"
+                                       data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="required:true"/>
+
+                                <div id="postcodeConfirm" class="hiddenLabel confirmation"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-label control-label"><b
+                                    class="required"></b>${Translate.homephoneLabel}</label>
+
+                            <div class="col-input-md">
+                                <input class="form-control input-sm no-confirmation" name="homephone" type="text"
+                                       data-dojo-attach-point="_homephone"
+                                       data-dojo-type="dijit/form/TextBox"/>
+
+                                <div id="homephoneConfirm" class="hiddenLabel confirmation"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-label control-label"><b
+                                    class="required">*</b>${Translate.cellLabel}</label>
+
+                            <div class="col-input-md">
+                                <input class="form-control input-sm no-confirmation" name="cellphone" type="text"
+                                       data-dojo-attach-point="_cellphone"
+                                       data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="required:true"/>
+
+                                <div id="cellphoneConfirm" class="hiddenLabel confirmation"></div>
+                            </div>
                         </div>
 
-                    </div>
-                    <div class="form-group">
-                        <label class="col-label control-label"><b
-                                class="required">*</b>${Translate.firstnameLabel}</label>
+                        <div class="row">
+                            <label class="col-label control-label"><b
+                                    class="required">*</b>${Translate.birthdateLabel}</label>
 
-                        <div class="col-input-md">
-                            <input class="form-control input-sm" type="text"
-                                   data-dojo-attach-point="_firstname"
-                                   data-dojo-type="dijit/form/ValidationTextBox"
-                                   data-dojo-props="required:true, invalidMessage: '${Translate.invalidMessage}',
-                                      missingMessage: '${Translate.missingMessage}'"
-                                    />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-label control-label"><b
-                                class="required">*</b>${Translate.surnameLabel}</label>
+                            <div class="col-input-sm1">
+                                <input class="form-control input-sm no-confirmation" name="birthdate" type="text"
+                                       id="date" size="11"
+                                       required placeholder="dd/mm/yyyy"
+                                       data-dojo-attach-point="_birthdate"
+                                       data-dojo-type="dijit.form.DateTextBox"
+                                       data-dojo-attach-point="_birthdate" data-dojo-props="required:true"/>
 
-                        <div class="col-input-md">
-                            <input class="form-control input-sm" type="text"
-                                   data-dojo-attach-point="_surname"
-                                   data-dojo-type="dijit/form/ValidationTextBox"
-                                   data-dojo-props="required:true, invalidMessage: '${Translate.invalidMessage}',
-                                      missingMessage: '${Translate.missingMessage}'"
-                                    />
+                                <div id="birthdateConfirm" class="hiddenLabel confirmation"></div>
+                            </div>
+                            <div class="col-input-sm1">
+                                <img src="assets/images/date.png" alt="Date of Birth" width="20"/>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-label control-label"><b class="required"></b>${Translate.companyLabel}</label>
+                        <div class="row">
+                            <label class="col-label control-label"><b
+                                    class="required">*</b>${Translate.genderLabel}</label>
 
-                        <div class="col-input">
-                            <input class="form-control input-sm" type="text"
-                                   data-dojo-attach-point="_company"
-                                   data-dojo-type="dijit/form/ValidationTextBox"/>
+                            <div class="col-input-xs">
+                                <input class="select no-confirmation"  id="genderId" name="genderId" type="text"
+                                       data-dojo-type="dijit/form/Select"
+                                       data-dojo-props="labelAttr:'name', required:true"
+                                     />
+                                <div id="genderIdConfirm" class="hiddenLabel confirmation"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-label control-label"><b
-                                class="required">*</b>${Translate.addressLineLabel}</label>
+                        <div class="row">
+                            <label class="col-label control-label"><b
+                                    class="required"></b>${Translate.uploadPhotoLabel}</label>
 
-                        <div class="col-input">
-                            <input class="form-control input-sm" type="text"
-                                   data-dojo-attach-point="_address"
-                                   data-dojo-type="dijit/form/ValidationTextBox"
-                                   data-dojo-props="required:true, invalidMessage: '${Translate.invalidMessage}',
-                                      missingMessage: '${Translate.missingMessage}'"
-                                    />
+                            <div class="col-input">
+                                <button class="upload no-confirmation" data-dojo-type="dijit/form/Button">
+                                    <b>${Translate.uploadLabel}</b>
+                                </button>
+                                <img id="imageConfirm"
+                                     class="dijitHidden imageProfile" src="assets/images/profile.jpg"></img>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-label control-label"><b class="required">*</b>${Translate.cityLabel}</label>
+                        <div class="row">
+                            <label class="col-label control-label"><b
+                                    class="required">*</b>${Translate.membershipLabel}</label>
 
-                        <div class="col-input-md2">
-                            <input class="form-control input-sm" type="text"
-                                   data-dojo-attach-point="_city"
-                                   data-dojo-type="dijit/form/ValidationTextBox"
-                                   data-dojo-props="required:true, invalidMessage: '${Translate.invalidMessage}',
-                                      missingMessage: '${Translate.missingMessage}'"
-                                    />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-label control-label"><b
-                                class="required">*</b>${Translate.postcodeLabel}</label>
+                            <div class="col-input">
+                                <input class="form-control input-sm no-confirmation" name="membershipNumber" type="text"
+                                       data-dojo-attach-point="_membershipNumber"
+                                       data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="required:true"/>
 
-                        <div class="col-input-sm2">
-                            <input class="form-control input-sm" type="text"
-                                   data-dojo-attach-point="_postcode"
-                                   data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="required:true, invalidMessage: '${Translate.invalidMessage}',
-                                      missingMessage: '${Translate.missingMessage}'"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-label control-label">${Translate.homephoneLabel}</label>
-
-                        <div class="col-input-md">
-                            <input class="form-control input-sm" type="text"
-                                   data-dojo-attach-point="_homephone"
-                                   data-dojo-type="dijit/form/ValidationTextBox"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-label control-label"><b class="required">*</b>${Translate.cellLabel}</label>
-
-                        <div class="col-input-md">
-                            <input class="form-control input-sm" type="text"
-                                   data-dojo-attach-point="_cellphone"
-                                   data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="required:true, invalidMessage: '${Translate.invalidMessage}',
-                                      missingMessage: '${Translate.missingMessage}'"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-label control-label"><b
-                                class="required">*</b>${Translate.birthdateLabel}</label>
-
-                        <div class="col-input-sm1">
-                            <input class="form-control input-sm" type="text" name="birthdate_field" id="date" size="11"
-                                   required placeholder="dd/mm/yyyy"
-                                   data-dojo-attach-point="_birthdate"
-                                   data-dojo-type="dijit.form.DateTextBox"
-                                   data-dojo-attach-point="_birthdate" data-dojo-props="required:true, invalidMessage: '${Translate.invalidMessage}',
-                                      missingMessage: '${Translate.missingMessage}'"/>
-                        </div>
-                        <div class="col-input-sm1">
-                            <img src="assets/images/date.png" alt="Date of Birth" width="20"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-label control-label"><b class="required">*</b>${Translate.genderLabel}</label>
-
-                        <div class="col-input-md3">
-                            <div class="form-control2 input-sm2" id="genderSelect"  data-dojo-attach-point="_genderValue"/></div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-label control-label"><b
-                                class="required"></b>${Translate.uploadPhotoLabel}</label>
-
-                        <div class="col-input">
-                            <button class="upload" onclick="alert('doing something')"><b>${Translate.uploadLabel}</b>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-label control-label"><b
-                                class="required">*</b>${Translate.membershipLabel}</label>
-
-                        <div class="col-input">
-                            <input class="form-control input-sm" type="text"
-                                   data-dojo-attach-point="_membershipNumber"
-                                   data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="required:true, invalidMessage: '${Translate.invalidMessage}',
-                                      missingMessage: '${Translate.missingMessage}'"/>
+                                <div id="membershipNumberConfirm" class="hiddenLabel confirmation"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="button-group actions">
+                    <button id="addBtn" type="button" class="no-confirmation" data-dojo-type="dijit/form/Button">
+                        ${Translate.addNewPersonButton}
+                    </button>
+                    <button id="backBtn" type="button" class="dijitHidden confirmation" data-dojo-type="dijit/form/Button">
+                        ${Translate.backButton}
+                    </button>
+                    <b>${Translate.orLabel}</b>
+
+                    <button id="continueBtn" type="button" data-dojo-type="dijit/form/Button" data-dojo-props="disabled:true">
+                        ${Translate.continueButton}
+                    </button>
+                </div>
             </div>
-            <div class="button-group">
-                <span class="button" id="_btn" data-dojo-attach-point="_btn">${Translate.addNewPersonButton}</span>
-                <b>${Translate.orLabel}</b>
-                <span class="button" data-dojo-attach-point="_btnContinue">${Translate.continueButton}</span>
-            </div>
-        </div>
+        </form>
     </div>
 </div>

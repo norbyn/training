@@ -17,12 +17,10 @@ define("app/nls/es/Form", ({
     uploadPhotoLabel: "Subir Foto",
     uploadLabel: "Subir",
     membershipLabel: "Número de Asociación",
-    addNewPersonButton: "Adicionar Otra Persona",
+    addNewPersonButton: "Guardar",
     backButton: "Atrás",
     orLabel: "o",
     continueButton: "Continuar",
     select: "--SELECCIONE--",
-    missingMessage: "Este campo es requerido.",
-    invalidMessage: "El valor no es válido.",
     postOk: "Operación exitosa"
 }));
