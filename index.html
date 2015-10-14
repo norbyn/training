@@ -5,110 +5,16 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width">
         <meta name="description" content="Networking Conference"/>
+        <link rel="stylesheet" href="assets/lib/dijit/themes/claro/claro.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+
+        <script src="config.js"></script>
+        <script src="assets/lib/helper/helper.js"></script>
+        <script src="assets/lib/dojo/dojo.js"></script>
+        <script src="app.js"></script>
     </head>
-    <body>
-        <div class="content">
-            <h1>Networking Conference</h1>
-            <div class="container">
-                <form>
-                    <div class="form-input">
-                        <h4>Personal Info</h4>
-                        <div class="form-body">
-                            <div class="form-group">
-                                <label class="col-label control-label"><b class="required">*</b>Email</label>
-                                <div class="col-input">
-                                    <input type="email" class="form-control input-sm">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-label control-label"><b class="required">*</b>Firstname</label>
-                                <div class="col-input-md">
-                                    <input type="text" class="form-control input-sm">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-label control-label"><b class="required">*</b>Surname</label>
-                                <div class="col-input-md">
-                                    <input type="text" class="form-control input-sm">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-label control-label">Company/Organization</label>
-                                <div class="col-input">
-                                    <input type="text" class="form-control input-sm">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-label control-label"><b class="required">*</b>Address Line 1</label>
-                                <div class="col-input">
-                                    <input type="text" class="form-control input-sm">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-label control-label"><b class="required">*</b>Town/City</label>
-                                <div class="col-input-md2">
-                                    <input type="text" class="form-control input-sm">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-label control-label"><b class="required">*</b>Post Code</label>
-                                <div class="col-input-sm2">
-                                    <input type="text" class="form-control input-sm">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-label control-label">Home Telephone</label>
-                                <div class="col-input-md">
-                                    <input type="text" class="form-control input-sm">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-label control-label"><b class="required">*</b>Mobile Phone</label>
-                                <div class="col-input-md">
-                                    <input type="text" class="form-control input-sm">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-label control-label"><b class="required">*</b>Date of Birth</label>
-                                <div class="col-input-sm1">
-                                    <input type="date" class="form-control input-sm" placeholder="dd/mm/yyyy">
-                                </div>
-                                <div class="col-input-sm1">
-                                    <img src="assets/images/date.png" alt="Date of Birth" width="20"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-label control-label"><b class="required">*</b>Gender</label>
-                                <div class="col-input-md">
-                                    <select class="select">
-                                        <option></option>
-                                        <option value="1">Male</option>
-                                        <option value="2">Female</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-label control-label">Upload Photo</label>
-                                <div class="col-input">
-                                    <button class="upload" onclick="alert('doing something')"><b>Upload</b></button>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-label control-label"><b class="required">*</b>Membership Number</label>
-                                <div class="col-input">
-                                    <input type="text" class="form-control input-sm">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-group">
-                        <button>Add Another Person</button>
-                        <b>or</b>
-                        <button>Continue</button>
-                    </div>
-                </form>
-            </div>
-        </div>         
+    <body class="claro">
+        <div data-dojo-type="app.Lang"></div>
+        <div data-dojo-type="app.PersonalDataForm"></div>
     </body>
 </html>
