@@ -75,8 +75,8 @@ define([
                     domClass.remove(node, "dijitHidden");
                 });
 
-                query(".hiddenLabel.confirmation").forEach(function (node, index, arr) {
-                    domClass.add(node, "form-control input-sm confirmText");
+				query(".hiddenLabel.confirmation").forEach(function (node, index, arr) {
+				   domClass.add(node, "form-control input-sm confirmText");
                 });
 
                 query(".required").forEach(function (node, index, arr) {
@@ -88,11 +88,24 @@ define([
                 query('#emailConfirm')[0].innerHTML = values.email;
                 query('#firstnameConfirm')[0].innerHTML = values.firstname;
                 query('#surnameConfirm')[0].innerHTML = values.surname;
-                query('#companyConfirm')[0].innerHTML = values.company;
+				if(values.company === null || values.company === "")
+			      {
+				     query('#companyConfirm')[0].innerHTML = "?";
+				  }else
+				  {
+				  query('#companyConfirm')[0].innerHTML = values.company;
+				  }
+                
                 query('#addressConfirm')[0].innerHTML = values.address;
                 query('#cityConfirm')[0].innerHTML = values.city;
                 query('#postcodeConfirm')[0].innerHTML = values.postcode;
-                query('#homephoneConfirm')[0].innerHTML = values.homephone;
+				if(values.homephone === null || values.homephone === "")
+			      {
+				     query('#homephoneConfirm')[0].innerHTML = "?";
+				  }else
+				  {
+				 query('#homephoneConfirm')[0].innerHTML = values.homephone;
+				  }                
                 query('#cellphoneConfirm')[0].innerHTML = values.cellphone;
                 query('#birthdateConfirm')[0].innerHTML = locale.format(values.birthdate, {
                     selector: "date",
@@ -124,6 +137,11 @@ define([
             query("#imageConfirm").forEach(function (node, index, arr) {
                 domClass.add(node, "dijitHidden");
             });
+			
+			 query(".required.need").forEach(function (node, index, arr) {
+                    node.innerHTML = "*";
+                });
+			
             registry.byId('dataForm').set('isconfirmed', false);
             registry.byId('continueBtn').setAttribute("disabled", true);
         }

@@ -14,11 +14,12 @@ define([
     return declare('app.Lang', [_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
         templateString: template,
         postCreate: function () {
-            on(this._spanishMenuItem, 'click', function () {
-                window.location.href = config.SiteUrl + '?lang=es';
+		var url = window.location.href.split('?')[0];
+            on(this._spanishMenuItem, 'click', function () {               
+			   window.location.href = url + '?lang=es';			   
             });
-            on(this._englishMenuItem, 'click', function () {
-                window.location.href = config.SiteUrl + '?lang=en';
+            on(this._englishMenuItem, 'click', function () {                
+				 window.location.href = url + '?lang=en';
             });
         }
     });
