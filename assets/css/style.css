@@ -1,166 +1,192 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-body{
-    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#B9DA7B), to(white));
-    background: -webkit-linear-gradient(180deg, #B9DA7B, #white);
-    background: linear-gradient(180deg, #B9DA7B, white);
+
+body {
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#B9DA7B), to(white)) no-repeat;
+    background: -webkit-linear-gradient(180deg, #B9DA7B, #white) no-repeat;
+    background: linear-gradient(180deg, #B9DA7B, white) no-repeat;
     font-family: sans-serif;
 }
-h1{
+
+h1 {
     color: #508D6D;
     text-shadow: 2px 2px 2px #508D6D;
 }
-h4{
+
+h4 {
     background: #FFFFFF;
     margin: 0 0 -2px 15px;
     padding: 0 0 0 6px;
     width: 6.6em;
 }
+
 img {
-    float: left;
-    margin-left: -65px;
-    padding: 5px 0 0 12px;
-    text-align: left;
-    vertical-align: middle;
+    margin-right: 10px;
+    margin-left: -10px;
+    vertical-align: central;
 }
-label {
-    display: inline-block;
-    font-weight: bold;
-    text-align: right;
+
+input, select, .upload, textarea {
+    border: 1px solid blue;
+    border-top-color: #555;
+    border-radius: 4px;
+    height: 30px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    margin-right: 2px;
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    width: 60%;
 }
-.button-group{
-    background: #FFFFFF;
-    margin-top: 10px;
-    padding-top: 25px;
-    text-align: center;
+
+input:focus {
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
 }
-.button-group b{
-    font-size: 1em;
-    margin: 0 20px 0 20px;
+
+input[type="date"] {
+    margin-right: 20px;
 }
-.button-group button{
-    background: #C1DF69;
-    border: #D4E6B4 solid;
-    border-radius: 0.5em; 
-    color: #555;
-    font-size: 27px;
-    font-weight: bold;
-    padding: 8px;
+
+textarea {
+    height: 50px;
+    resize: vertical;
+    margin-right: 0;
 }
-.col-label, 
-.col-input,
-.col-input-md,
-.col-input-md2,
-.col-input-sm1,
-.col-input-sm2{
-    float: left;
-    padding-left: 12px;
-    position: relative;
+
+label, input, select, .upload, textarea {
+    margin: 10px;
 }
-.col-input {
-    min-width: 200px;
-    width: 44.2%;
+
+#labelTextArea {
+    margin-left: 0;
+    margin-right: 145px;
 }
-.col-input-md {
-    min-width: 200px;
-    width: 22%;
+
+.clear, .inner {
+    clear: both;
 }
-.col-input-md2 {
-    min-width: 200px;
-    width: 30.7%;
-}
-.col-input-sm1 {
-    min-width: 130px;
-    width: 16.5%;
-}
-.col-input-sm2 {
-    min-width: 200px;
-    width: 18%;
-}
-.col-label {
-    width: 41.5%;
-}
-.container{
-    padding: 100px 0 15px 0;
-}
+
 .content {
     background: #FFFFFF;
     margin: 0 4% 0 4%;
     padding: 2% 3% 0 3%;
 }
-.form-body{
-    border: #D4E6B4 solid;
-    border-radius: 0.5em;
-    height: 625px;
-    padding: 10px 0 0 0;
-    text-align: center;
+
+.container {
+    padding: 100px 0 15px 0;
 }
-.form-body .control-label{
-    padding-top: 0;
-    margin-top: -1px;
-    margin-bottom: 0;
+
+.exclude {
+    margin-left: 10px;
 }
-.form-body .form-group {
-    margin-right: -10px;
-    margin-left: -10px;
+
+.textarea * {
+    margin-right: -5px;
+    vertical-align: middle;
 }
-.form-control {
-    border: 1px solid #ccc;
-    border-top-color: #555;
-    border-radius: 4px;
-    display: block;
-    height: 20px;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    width: 60%;
-}
-.form-control:focus {
-    outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
-}
-.form-input{
+
+.form-input {
     background: #F6F6F6;
+    margin-bottom: auto;
     padding-bottom: 5px;
     width: 100%;
 }
-.input-sm {
-    border-radius: 3px;
-    font-size: 14px;
-    padding: 5px 10px;
+
+.form-body {
+    border: #D4E6B4 solid;
+    padding: 2px 25% 2px 25%;
 }
-.required{
+
+.form-footer {
+    background: #FFFFFF;
+    margin-top: 10px;
+    padding-top: 25px;
+    text-align: center;
+}
+
+.form-footer b {
+    font-size: 1em;
+    margin: 0 20px 0 20px;
+}
+
+.form-footer button {
+    background: #C1DF69;
+    border: #D4E6B4 solid;
+    border-radius: 0.5em;
+    color: #555;
+    font-size: 27px;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.hlf {
+    width: 166px;
+}
+
+.lg {
+    width: 314px;
+}
+
+.l-center {
+    background-color: blue;
+}
+
+.md {
+    width: 255px;
+}
+
+.sh {
+    width: 140px;
+}
+
+.sm {
+    width: 132px;
+}
+
+.sm-2 {
+    width: 108px;
+}
+
+.sm-3 {
+    width: 88px;
+}
+
+.required {
     color: #FE1112;
     font-size: 30px;
     padding-right: 4px;
     vertical-align: middle;
 }
-.select{
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    border-top-color: #555;
-    float: left;
-    min-width: 108px;
-    padding: 6px 10px;
+
+.resize * {
+    vertical-align: middle;
 }
-.form-control,.form-group,.select,.upload,label{
-    margin-bottom: 15px;
-}
-.upload{
+
+.upload {
     background: #E4E4E4;
     border: 1px solid transparent;
     border-radius: 8px;
     border-color: #999;
-    -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px #E3E3E3;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px #E3E3E3;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 4px #E3E3E3;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 4px #E3E3E3;
     color: #555;
-    display: block;
     font-size: larger;
-    padding: 8px;
+    padding: 2px;
 }
-.upload,.button-group button,img{
-    cursor: pointer;
+
+.vertical-align {
+    padding-top: 10px;
+}
+
+.vertical-align-2 {
+    padding-top: 10px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .vertical-align-2 {
+        padding-top: 17px;
+    }
 }
