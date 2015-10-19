@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#B9DA7B), to(white)) no-repeat;
+    background: -webkit-linear-gradient(180deg, #B9DA7B, #white) no-repeat;
+    background: linear-gradient(180deg, #B9DA7B, white) no-repeat;
+    font-family: sans-serif;
+}
+
+div.form-group {
+    background-color: blue;
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+input, select, textarea {
+    border-radius: 4px;
+    height: 56px;
+    margin: 10px 10px 10px 15%;
+    min-height: 56px;
+    max-width: 576px;
+    min-width: 496px;
+    vertical-align: middle;
+}
+
+label,
+input {
+    display: table-cell;
+}
+
+label {
+    background: green;
+    text-align: center;
+    width: 35%;
+}
+
+select {
+    margin-top: 0;
+    min-height: 60px;
+    min-width: 500px;
+}
+
+textarea {
+    margin: 10px 10px 0 15%;
+    resize: vertical;
+}
+
+h1 {
+    color: #508D6D;
+    text-shadow: 2px 2px 2px #508D6D;
+}
+
+h4 {
+    background: #FFFFFF;
+    margin: 0 0 -2px 15px;
+    padding: 0 0 0 6px;
+    width: 6.6em;
+}
+
+.border {
+    border: #D4E6B4 solid;
+    padding: 0 10% 0 10%;
+    margin: 0 auto;
+}
+
+.border,
+.container,
+.form-footer,
+.form-input,
+.inner-container,
+.form-group {
+    overflow: auto;
+}
+
+.content {
+    background: #FFFFFF;
+    margin: 0 4% 0 4%;
+    padding: 2% 3% 0 3%;
+}
+
+.container {
+    padding: 100px 0 15px 0;
+}
+
+.form-input {
+    background: #F6F6F6;
+    width: 100%;
+}
+
+.form-footer {
+    background: #FFFFFF;
+    margin-top: 10px;
+    padding-top: 25px;
+    text-align: center;
+}
+
+.form-footer b {
+    font-size: 1em;
+    margin: 0 20px 0 20px;
+}
+
+.form-footer button {
+    background: #C1DF69;
+    border: #D4E6B4 solid;
+    border-radius: 0.5em;
+    color: #555;
+    cursor: pointer;
+    font-size: 27px;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.required {
+    vertical-align: middle;
+    color: #FE1112;
+    font-size: 30px;
+}
+
+.upload {
+    border-radius: 4px;
+    height: auto;
+    margin: 10px 10px 10px 15%;
+    padding: 8px;
+    width: auto;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 600px) {
+    .border {
+        padding: 0;
+    }
+
+    .form-footer {
+        display: block;
+        overflow: auto;
+        text-align: center;
+    }
+
+    .form-footer b {
+        font-size: 20px;
+        width: 100%;
+    }
+
+    .form-footer button {
+        font-size: 20px;
+        width: 100%;
+
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .col-2 {
+        margin-left: 0;
+    }
+}
+

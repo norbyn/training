@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <title>Networking Conference</title>
     <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Networking Conference</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Networking Conference"/>
-    <link rel="stylesheet" type="text/css" href="assets/css/grid.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css" media="screen"/>
 </head>
 <body>
 <div class="content">
@@ -18,135 +19,116 @@
                 <h4>Personal Info</h4>
 
                 <div class="border">
-                    <div class="form-body">
-                        <div class="l-center">
-                            <div class="row">
-                                <div class="grid-4 left vertical-align">
-                                    <label><b class="required">*</b>Email</label>
-                                </div>
-                                <div class="right">
-                                    <input class="lg standard" type="text">
-                                </div>
-                            </div>
+                    <div class="form-group">
+                        <label><b class="required">*</b>Email</label>
 
-                            <div class="row">
-                                <div class="grid-4 left vertical-align">
-                                    <label><b class="required">*</b>Firstname</label>
-                                </div>
-                                <div class="right">
-                                    <input class="hlf standard" type="text">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="grid-4 left vertical-align">
-                                    <label><b class="required">*</b>Surname</label>
-                                </div>
-                                <div class="right">
-                                    <input class="hlf standard" type="text">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="grid-4 left vertical-align-2">
-                                    <label class="exclude"><b class="required"></b>Company/Organization</label>
-                                </div>
-                                <div class="right">
-                                    <input class="lg standard" type="text">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="grid-4 left vertical-align">
-                                    <label><b class="required">*</b>Address Line 1</label>
-                                </div>
-                                <div class="right">
-                                    <input class="hlf standard" type="text">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="grid-4 left vertical-align">
-                                    <label class="m-padded-vertical"><b class="required">*</b>Town/City</label>
-                                </div>
-                                <div class="right">
-                                    <input class="md standard" type="text">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="grid-4 left vertical-align">
-                                    <label><b class="required">*</b>Post Code</label>
-                                </div>
-                                <div class="right">
-                                    <input class="sh standard" type="text">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="grid-4 left vertical-align-2">
-                                    <label><b class="required"></b>Home Telephone</label>
-                                </div>
-                                <div class="right">
-                                    <input class="hlf standard" type="text">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="grid-4 left vertical-align">
-                                    <label><b class="required">*</b>Mobile Phone</label>
-                                </div>
-                                <div class="right">
-                                    <input class="hlf standard" type="text">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="grid-4 left vertical-align">
-                                    <label><b class="required">*</b>Date of Birth</label>
-                                </div>
-                                <div class="right">
-                                    <input type="date" class="sm standard" placeholder="dd/mm/yyyy">
-                                    <img src="assets/images/date.png" alt="Date of Birth" width="20"/>
-                                </div>
-                            </div>
-                            <p class="textarea">
-                                <label id="labelTextArea" for="textarea"><b class="required">*</b>Description</label>
-                                <textarea class="lg standard"></textarea>
-
-                            <div class="clear"></div>
-                            </p>
-                            <div class="row">
-                                <div class="grid-4 left vertical-align">
-                                    <label><b class="required">*</b>Gender</label>
-                                </div>
-                                <div class="right">
-                                    <select class="sm-2 standard">
-                                        <option></option>
-                                        <option value="1">Male</option>
-                                        <option value="2">Female</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="grid-4 left vertical-align">
-                                    <label><b class="required"></b>Upload</label>
-                                </div>
-                                <div class="right">
-                                    <button class="sm-3 standard upload"><b>Upload</b></button>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="grid-4 left vertical-align">
-                                    <label class="v"><b class="required">*</b>Membership Number</label>
-                                </div>
-                                <div class="right">
-                                    <input class="lg standard" type="text">
-                                </div>
-                            </div>
+                        <div>
+                            <input type="text" name="email"/>
                         </div>
-                        <div class="clear"></div>
+                    </div>
+                    <div class="form-group">
+                        <label><b class="required">*</b>Firstname</label>
+
+                        <div>
+                            <input type="text" name="firstname">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><b class="required">*</b>Surname</label>
+
+                        <div>
+                            <input type="text" name="surname">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><b class="required"></b>Company/Organization</label>
+
+                        <div>
+                            <input type="text" name="company">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><b class="required">*</b>Address Line 1</label>
+
+                        <div>
+                            <input type="text" name="address">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><b class="required">*</b>Town/City</label>
+
+                        <div>
+                            <input type="text" name="city">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><b class="required">*</b>Post Code</label>
+
+                        <div>
+                            <input type="text" name="postcode">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><b class="required"></b>Home
+                            Telephone</label>
+
+                        <div>
+                            <input type="text" name="hometelephone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><b class="required">*</b>Mobile Phone</label>
+
+                        <div>
+                            <input type="text" name="mobile">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><b class="required">*</b>Date of Birth</label>
+
+                        <div>
+                            <input type="date" name="birthdate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><b class="required">*</b>Description</label>
+
+                        <div>
+                            <textarea name="description"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><b class="required">*</b>Gender</label>
+
+                        <div>
+                            <select>
+                                <option></option>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><b class="required"></b>Upload</label>
+
+                        <div>
+                            <button class="upload"><b>Upload</b></button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><b class="required">*</b>Membership</label>
+
+                        <div>
+                            <input type="text" name="membership">
+                        </div>
                     </div>
                 </div>
+                <div class="form-footer">
+                    <button>Add Another Person</button>
+                    <b>or</b>
+                    <button>Continue</button>
+                </div>
             </div>
-            <div class="form-footer">
-                <button>Add Another Person</button>
-                <b>or</b>
-                <button>Continue</button>
-            </div>
-
         </form>
     </div>
 </div>
