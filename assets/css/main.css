@@ -15,12 +15,13 @@ div.form-group {
     display: table;
     height: 100%;
     width: 100%;
+    text-align: right;
 }
 
-input, select, textarea {
+input, select, textarea{
     border-radius: 4px;
     height: 56px;
-    margin: 10px 10px 10px 15%;
+    margin: 10px 10px 10px 10px;
     min-height: 56px;
     max-width: 576px;
     min-width: 496px;
@@ -28,14 +29,14 @@ input, select, textarea {
 }
 
 label,
-input {
+input{
     display: table-cell;
 }
 
 label {
     background: green;
     text-align: center;
-    width: 35%;
+    width: 30%;
 }
 
 select {
@@ -63,7 +64,7 @@ h4 {
 
 .border {
     border: #D4E6B4 solid;
-    padding: 0 10% 0 10%;
+    padding: 0 10% 5px 10%;
     margin: 0 auto;
 }
 
@@ -75,7 +76,13 @@ h4 {
 .form-group {
     overflow: auto;
 }
-
+.confirm{
+    border-radius: 3px;
+    text-align: center;
+    margin-left: 10%;
+    vertical-align: middle;
+    width: 500px;
+}
 .content {
     background: #FFFFFF;
     margin: 0 4% 0 4%;
@@ -113,7 +120,15 @@ h4 {
     font-weight: bold;
     padding: 8px;
 }
-
+.has-error{
+    border-color: red;
+}
+.help-block{
+    color: black;
+    font-style: italic;
+    padding: 0 10px 10px 0;
+    width: auto;
+}
 .required {
     vertical-align: middle;
     color: #FE1112;

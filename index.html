@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html ng-app="myApp">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -8,13 +8,18 @@
     <meta name="description" content="Networking Conference"/>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/main.css" media="screen"/>
+    <!-- JS -->
+    <script type="text/javascript" src="assets/js/angular.min.js"></script>
+    <script type="text/javascript" src="assets/js/angular-route.min.js"></script>
+    <script type="text/javascript" src="assets/js/angular-i18n-module.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
 </head>
 <body>
 <div class="content">
     <h1>Networking Conference</h1>
 
-    <div class="container">
-        <form>
+    <div class="container" data-ng-controller="PersonalDataController">
+        <form name="personForm" role="form" novalidate>
             <div class="form-input">
                 <h4>Personal Info</h4>
 
@@ -22,111 +27,212 @@
                     <div class="form-group">
                         <label><b class="required">*</b>Email</label>
 
-                        <div>
-                            <input type="text" name="email"/>
+                        <div ng-show="no_confirm">
+                            <input type="email" name="email" ng-model="email" required
+                                   ng-class="{ 'has-error' : submitted && personForm.email.$invalid || submitted && personForm.email.$error.required}"/>
+
+                            <div ng-show="submitted && personForm.email.$invalid" class="help-block">
+                                <p ng-show="personForm.email.$error.required">email is required</p>
+
+                                <p ng-show="!personForm.email.$error.required && personForm.email.$invalid">email is
+                                    invalid</p>
+                            </div>
+                        </div>
+                        <div ng-hide="no_confirm" class="confirm">
+                            {{email}}
                         </div>
                     </div>
                     <div class="form-group">
                         <label><b class="required">*</b>Firstname</label>
 
-                        <div>
-                            <input type="text" name="firstname">
+                        <div ng-show="no_confirm">
+                            <input type="text" name="firstname" ng-model="firstname" required
+                                   ng-class="{ 'has-error' : submitted && personForm.firstname.$error.required}">
+
+                            <div ng-show="submitted && personForm.firstname.$invalid" class="help-block">
+                                <p ng-show="personForm.firstname.$error.required">firstname is required</p>
+                            </div>
+                        </div>
+                        <div ng-hide="no_confirm" class="confirm">
+                            {{firstname}}
                         </div>
                     </div>
                     <div class="form-group">
                         <label><b class="required">*</b>Surname</label>
 
-                        <div>
-                            <input type="text" name="surname">
+                        <div ng-show="no_confirm">
+                            <input type="text" name="surname" ng-model="surname" required
+                                   ng-class="{ 'has-error' : submitted && personForm.surname.$error.required}">
+
+                            <div ng-show="submitted && personForm.surname.$invalid" class="help-block">
+                                <p ng-show="personForm.surname.$error.required">surname is required</p>
+                            </div>
+                        </div>
+                        <div ng-hide="no_confirm" class="confirm">
+                            {{surname}}
                         </div>
                     </div>
                     <div class="form-group">
                         <label><b class="required"></b>Company/Organization</label>
 
-                        <div>
-                            <input type="text" name="company">
+                        <div ng-show="no_confirm">
+                            <input type="text" name="company" ng-model="company">
+                        </div>
+                        <div ng-hide="no_confirm" class="confirm">
+                            {{company}}
                         </div>
                     </div>
                     <div class="form-group">
                         <label><b class="required">*</b>Address Line 1</label>
 
-                        <div>
-                            <input type="text" name="address">
+                        <div ng-show="no_confirm">
+                            <input type="text" name="address" ng-model="address" required
+                                   ng-class="{ 'has-error' : submitted && personForm.address.$error.required}">
+
+                            <div ng-show="submitted && personForm.address.$invalid" class="help-block">
+                                <p ng-show="personForm.address.$error.required">address is required</p>
+                            </div>
+                        </div>
+                        <div ng-hide="no_confirm" class="confirm">
+                            {{address}}
                         </div>
                     </div>
                     <div class="form-group">
                         <label><b class="required">*</b>Town/City</label>
 
-                        <div>
-                            <input type="text" name="city">
+                        <div ng-show="no_confirm">
+                            <input type="text" name="city" ng-model="city" required
+                                   ng-class="{ 'has-error' : submitted && personForm.city.$error.required}">
+
+                            <div ng-show="submitted && personForm.city.$invalid" class="help-block">
+                                <p ng-show="personForm.city.$error.required">city is required</p>
+                            </div>
+                        </div>
+                        <div ng-hide="no_confirm" class="confirm">
+                            {{city}}
                         </div>
                     </div>
                     <div class="form-group">
                         <label><b class="required">*</b>Post Code</label>
 
-                        <div>
-                            <input type="text" name="postcode">
+                        <div ng-show="no_confirm">
+                            <input type="text" name="postcode" ng-model="postcode" required
+                                   ng-class="{ 'has-error' : submitted && personForm.postcode.$error.required}">
+
+                            <div ng-show="submitted && personForm.postcode.$invalid" class="help-block">
+                                <p ng-show="personForm.postcode.$error.required">postcode is required</p>
+                            </div>
+                        </div>
+                        <div ng-hide="no_confirm" class="confirm">
+                            {{postcode}}
                         </div>
                     </div>
                     <div class="form-group">
                         <label><b class="required"></b>Home
                             Telephone</label>
 
-                        <div>
-                            <input type="text" name="hometelephone">
+                        <div ng-show="no_confirm">
+                            <input type="text" ng-model="hometelephone">
+                        </div>
+                        <div ng-hide="no_confirm" class="confirm">
+                            {{hometelephone}}
                         </div>
                     </div>
                     <div class="form-group">
                         <label><b class="required">*</b>Mobile Phone</label>
 
-                        <div>
-                            <input type="text" name="mobile">
+                        <div ng-show="no_confirm">
+                            <input type="text" name="mobile" ng-model="mobile" required
+                                   ng-class="{ 'has-error' : submitted && personForm.mobile.$error.required}">
+
+                            <div ng-show="submitted && personForm.mobile.$invalid" class="help-block">
+                                <p ng-show="personForm.mobile.$error.required">mobile is required</p>
+                            </div>
+                        </div>
+                        <div ng-hide="no_confirm" class="confirm">
+                            {{mobile}}
                         </div>
                     </div>
                     <div class="form-group">
                         <label><b class="required">*</b>Date of Birth</label>
 
-                        <div>
-                            <input type="date" name="birthdate">
+                        <div ng-show="no_confirm">
+                            <input type="date" name="birthdate" ng-model="birthdate" required
+                                   ng-class="{ 'has-error' : submitted && personForm.birthdate.$invalid || submitted && personForm.birthdate.$error.required}">
+
+                            <div ng-show="submitted && personForm.birthdate.$invalid" class="help-block">
+                                <p ng-show="personForm.birthdate.$error.required">birthdate is required</p>
+                            </div>
+                        </div>
+                        <div ng-hide="no_confirm" class="confirm">
+                            {{birthdate | date: 'dd-MM-yyyy'}}
                         </div>
                     </div>
                     <div class="form-group">
                         <label><b class="required">*</b>Description</label>
 
-                        <div>
-                            <textarea name="description"></textarea>
+                        <div ng-show="no_confirm">
+                                    <textarea name="description" ng-model="description" required
+                                              ng-class="{ 'has-error' : submitted && personForm.description.$error.required}">
+                                    </textarea>
+
+                            <div ng-show="submitted && personForm.description.$invalid" class="help-block">
+                                <p ng-show="personForm.description.$error.required">description is required</p>
+                            </div>
+                        </div>
+                        <div ng-hide="no_confirm" class="confirm">
+                            {{description}}
                         </div>
                     </div>
                     <div class="form-group">
                         <label><b class="required">*</b>Gender</label>
 
-                        <div>
-                            <select>
+                        <div ng-show="no_confirm">
+                            <select name="gender" ng-model="gender" required
+                                    ng-class="{ 'has-error' : submitted && personForm.gender.$error.required}">
                                 <option></option>
-                                <option value="1">Male</option>
-                                <option value="2">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
+
+                            <div ng-show="submitted && personForm.gender.$invalid" class="help-block">
+                                <p ng-show="personForm.gender.$error.required">gender is required</p>
+                            </div>
+                        </div>
+                        <div ng-hide="no_confirm" class="confirm">
+                            {{gender}}
                         </div>
                     </div>
                     <div class="form-group">
                         <label><b class="required"></b>Upload</label>
 
-                        <div>
+                        <div ng-show="no_confirm">
                             <button class="upload"><b>Upload</b></button>
+                        </div>
+                        <div ng-hide="no_confirm" class="confirm">
+                            <img src="assets/images/profile.jpg" alt="Date of Birth" width="20"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label><b class="required">*</b>Membership</label>
 
-                        <div>
-                            <input type="text" name="membership">
+                        <div ng-show="no_confirm">
+                            <input type="text" name="membership" ng-model="membership" required
+                                   ng-class="{ 'has-error' : submitted && personForm.membership.$invalid || submitted && personForm.membership.$error.required}">
+
+                            <div ng-show="submitted && personForm.membership.$invalid" class="help-block">
+                                <p ng-show="personForm.membership.$error.required">membership is required</p>
+                            </div>
+                        </div>
+                        <div ng-hide="no_confirm" class="confirm">
+                            {{membership}}
                         </div>
                     </div>
                 </div>
                 <div class="form-footer">
-                    <button>Add Another Person</button>
+                    <button ng-click="confirm(personForm.$valid)">{{add_button}}</button>
                     <b>or</b>
-                    <button>Continue</button>
+                    <button ng-disabled="no_confirm" ng-click="continue(personForm.$valid)">Continue</button>
                 </div>
             </div>
         </form>
