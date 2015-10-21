@@ -1,17 +1,36 @@
 'use strict';
-var myAppModule = angular.module('myApp', []);
-myAppModule.controller('PersonalDataController', ['$scope', '$http',
-    function ($scope, $http) {
+
+var myAppModule = angular.module('myApp', ['ngRoute', 'pascalprecht.translate'],
+    ['$translateProvider', function ($translateProvider) {
+
+        $translateProvider.useStaticFilesLoader({
+            'prefix': 'app/i18n/locale-',
+            'suffix': '.json'
+        });
+        $translateProvider.preferredLanguage('en_US');
+        $translateProvider.useSanitizeValueStrategy(null);
+    }]);
+
+
+myAppModule.controller('PersonalDataController', ['$scope', '$http', '$translate',
+    function ($scope, $http, $translate) {
+
+
+        $scope.toggleLanguage = function (lang) {
+            // $translate.uses(($translate.uses() === 'en_US') ? 'es' : 'en_US');
+            $translate.use(lang);
+        };
+
         $scope.no_confirm = true;
-        $scope.add_button = "Add Another Person";
+        $scope.add_button = "addNewPersonButton";
         $scope.confirm = function (isValid) {
             if (isValid) {
                 if (!$scope.no_confirm) {
-                    $scope.add_button = "Add Another Person";
+                    $scope.add_button = "addNewPersonButton";
                     $scope.no_confirm = true;
                 }
                 else {
-                    $scope.add_button = "Back";
+                    $scope.add_button = "backButton";
                     $scope.no_confirm = false;
                 }
             } else {
