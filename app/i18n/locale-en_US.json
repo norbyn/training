@@ -11,6 +11,7 @@
   "homephoneLabel": "Home Telephone",
   "cellLabel": "Mobile Phone",
   "birthdateLabel": "Date of Birth",
+  "descriptionLabel": "Description",
   "genderLabel": "Gender",
   "genderMaleLabel": "Male",
   "genderFemaleLabel": "Female",

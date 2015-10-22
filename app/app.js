@@ -1,24 +1,31 @@
 'use strict';
-
-var myAppModule = angular.module('myApp', ['ngRoute', 'pascalprecht.translate'],
-    ['$translateProvider', function ($translateProvider) {
+var myAppModule = angular.module('myApp', ['pascalprecht.translate', 'ngCookies', 'LocalStorageModule'],
+    ['$translateProvider', 'localStorageServiceProvider', function ($translateProvider, localStorageServiceProvider) {
 
         $translateProvider.useStaticFilesLoader({
             'prefix': 'app/i18n/locale-',
             'suffix': '.json'
         });
-        $translateProvider.preferredLanguage('en_US');
         $translateProvider.useSanitizeValueStrategy(null);
+
+        localStorageServiceProvider.setPrefix('training');
     }]);
 
 
-myAppModule.controller('PersonalDataController', ['$scope', '$http', '$translate',
-    function ($scope, $http, $translate) {
 
+myAppModule.controller('PersonalDataController', ['$scope', '$http', '$location','$translate', '$cookieStore', 'localStorageService',
+    function ($scope, $http, $location,  $translate, $cookieStore, localStorageService) {
+
+        var defaultLang = localStorageService.get('lang');
+        if (!defaultLang){
+            defaultLang = "en_us";
+            localStorageService.set('lang', defaultLang);
+        }
+        $translate.use(defaultLang);
 
         $scope.toggleLanguage = function (lang) {
-            // $translate.uses(($translate.uses() === 'en_US') ? 'es' : 'en_US');
             $translate.use(lang);
+            localStorageService.set("lang", lang);
         };
 
         $scope.no_confirm = true;
