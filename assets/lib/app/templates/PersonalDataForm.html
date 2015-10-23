@@ -147,10 +147,11 @@
                                     class="required need">*</b>${Translate.genderLabel}</label>
 
                             <div class="col-input-xs">
-                                <input class="select no-confirmation"  id="genderId" name="genderId" type="text"
+                                <select class="select no-confirmation" id="genderId" name="genderId" type="text"
                                        data-dojo-type="dijit/form/Select"
                                        data-dojo-props="labelAttr:'name', required:true"
-                                     />
+                                        ></select>
+
                                 <div id="genderIdConfirm" class="hiddenLabel confirmation"></div>
                             </div>
                         </div>
@@ -181,15 +182,19 @@
                     </div>
                 </div>
                 <div class="button-group actions">
-                    <button id="addBtn" type="button" class="no-confirmation" data-dojo-type="dijit/form/Button">
+                    <button id="addBtn" class="no-confirmation" data-dojo-type="dijit/form/Button"
+                            data-dojo-attach-point="_addBtn">
                         ${Translate.addNewPersonButton}
                     </button>
-                    <button id="backBtn" type="button" class="dijitHidden confirmation" data-dojo-type="dijit/form/Button">
+                    <button id="backBtn" type="button" class="dijitHidden confirmation"
+                            data-dojo-type="dijit/form/Button" data-dojo-attach-point="_backBtn">
                         ${Translate.backButton}
                     </button>
                     <b>${Translate.orLabel}</b>
 
-                    <button id="continueBtn" type="button" data-dojo-type="dijit/form/Button" data-dojo-props="disabled:true">
+                    <button id="continueBtn" type="button" data-dojo-type="dijit/form/Button"
+                            data-dojo-attach-point="_continueBtn"
+                            data-dojo-props="disabled:true">
                         ${Translate.continueButton}
                     </button>
                 </div>

@@ -5,16 +5,13 @@ define([
     "dijit/_WidgetsInTemplateMixin",
     "dojo/i18n!app/nls/Form",
     "dojo/text!./templates/PersonalDataForm.html",
-    "dojo/text!./json/person.json",
     "dojo/store/Memory",
-    "dojo/json",
     "dojo/on",
-    "dojo/query",
     "dojo/_base/config",
     "dijit/registry",
-    "dijit/Dialog",
-    "dojo/dom-class",
     "dojo/date/locale",
+    "dojo/query",
+    "dojo/NodeList-dom",
     "dijit/form/Form",
     "dijit/form/Button",
     "dijit/form/TextBox",
@@ -23,7 +20,7 @@ define([
     "dijit/form/DateTextBox",
     "dojox/validate/web"
 ], function (declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin,
-             i18n, template, Person, Memory, json, on, query, config, registry, Dialog, domClass, locale) {
+             i18n, template, Memory, on, config, registry, locale, query) {
 
 
     var genderStore = new Memory({
@@ -32,12 +29,6 @@ define([
             {name: i18n.genderFemaleLabel, id: i18n.genderFemaleLabel}
         ]
     });
-
-
-    var personStore = new Memory({
-        data: json.parse(Person)
-    });
-
 
     return declare('app.PersonalDataForm', [_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
         Translate: i18n,
@@ -48,64 +39,34 @@ define([
             genderSelect.set('store', genderStore);
         },
 
-        _loadPersonal: function () {
-            var personId = getParam('id');
-            if (personId) {
-                var person = personStore.get(personId);
-                if (person) {
-                    var dataForm = registry.byId('dataForm');
-                    dataForm.set('value', person);
-                }
-            }
-        },
-
         _confirm: function () {
             var isValid = dataForm.validate();
             if (isValid && !dataForm.get('isconfirmed')) {
-
-                query(".no-confirmation").forEach(function (node, index, arr) {
-                    domClass.add(node, "dijitHidden");
-                });
-
-                query("#imageConfirm").forEach(function (node, index, arr) {
-                    domClass.remove(node, "dijitHidden");
-                });
-
-                query(".confirmation").forEach(function (node, index, arr) {
-                    domClass.remove(node, "dijitHidden");
-                });
-
-				query(".hiddenLabel.confirmation").forEach(function (node, index, arr) {
-				   domClass.add(node, "form-control input-sm confirmText");
-                });
-
+                query(".no-confirmation").addClass("dijitHidden");
+                query("#imageConfirm, .confirmation").removeClass("dijitHidden");
+                query(".hiddenLabel.confirmation").addClass("form-control input-sm confirmText");
                 query(".required").forEach(function (node, index, arr) {
                     node.innerHTML = "";
                 });
-                registry.byId('continueBtn').setAttribute("disabled", false);
-
+                registry.byId('continueBtn').set('disabled', false);
                 var values = dataForm.get('value');
                 query('#emailConfirm')[0].innerHTML = values.email;
                 query('#firstnameConfirm')[0].innerHTML = values.firstname;
                 query('#surnameConfirm')[0].innerHTML = values.surname;
-				if(values.company === null || values.company === "")
-			      {
-				     query('#companyConfirm')[0].innerHTML = "?";
-				  }else
-				  {
-				  query('#companyConfirm')[0].innerHTML = values.company;
-				  }
-                
+                if (values.company === null || values.company === "") {
+                    query('#companyConfirm')[0].innerHTML = "?";
+                } else {
+                    query('#companyConfirm')[0].innerHTML = values.company;
+                }
+
                 query('#addressConfirm')[0].innerHTML = values.address;
                 query('#cityConfirm')[0].innerHTML = values.city;
                 query('#postcodeConfirm')[0].innerHTML = values.postcode;
-				if(values.homephone === null || values.homephone === "")
-			      {
-				     query('#homephoneConfirm')[0].innerHTML = "?";
-				  }else
-				  {
-				 query('#homephoneConfirm')[0].innerHTML = values.homephone;
-				  }                
+                if (values.homephone === null || values.homephone === "") {
+                    query('#homephoneConfirm')[0].innerHTML = "?";
+                } else {
+                    query('#homephoneConfirm')[0].innerHTML = values.homephone;
+                }
                 query('#cellphoneConfirm')[0].innerHTML = values.cellphone;
                 query('#birthdateConfirm')[0].innerHTML = locale.format(values.birthdate, {
                     selector: "date",
@@ -120,39 +81,28 @@ define([
             return isValid;
         }
         ,
-
         _fixFormTitle: function () {
             if (config.locale == "es-es" || config.locale == "es")
-                domClass.add("formTitle", "fixing");
+                query('#formTitle').addClass("fixing");
         }
         ,
-
         _goBack: function () {
-            query('.no-confirmation').forEach(function (node, index, arr) {
-                domClass.remove(node, 'dijitHidden');
+            query('.no-confirmation').removeClass('dijitHidden');
+            query('.confirmation, #imageConfirm').addClass('dijitHidden');
+            query(".required.need").forEach(function (node, index, arr) {
+                node.innerHTML = "*";
             });
-            query('.confirmation').forEach(function (node, index, arr) {
-                domClass.add(node, 'dijitHidden');
-            });
-            query("#imageConfirm").forEach(function (node, index, arr) {
-                domClass.add(node, "dijitHidden");
-            });
-			
-			 query(".required.need").forEach(function (node, index, arr) {
-                    node.innerHTML = "*";
-                });
-			
             registry.byId('dataForm').set('isconfirmed', false);
-            registry.byId('continueBtn').setAttribute("disabled", true);
+            registry.byId('continueBtn').set("disabled", true);
         }
         ,
         postCreate: function () {
+            var self = this;
             var dataForm = registry.byId('dataForm');
-            on(registry.byId('addBtn'), 'click', this._confirm);
-            on(registry.byId('backBtn'), 'click', this._goBack);
+            on(this._addBtn, 'click', this._confirm);
+            on(this._backBtn, 'click', this._goBack);
             this._fixFormTitle();
             this._setGenderStore();
-            this._loadPersonal();
             this.inherited(arguments);
         }
     });

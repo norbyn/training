@@ -5,12 +5,10 @@ define([
     "dijit/_WidgetsInTemplateMixin",
     "dojo/text!./templates/Lang.html",
     "dojo/on",
-    "dojo/query",
-    "dojo/_base/config",
     "dijit/Menu",
     "dijit/MenuItem"
 ], function (declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin,
-             template, on, query, config) {
+             template, on) {
     return declare('app.Lang', [_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
         templateString: template,
         postCreate: function () {
