@@ -217,17 +217,14 @@
                              data-dojo-props="title:'Terms and Conditions'" id="terms">
                             <p><strong>Please agree to the following terms and conditions:</strong></p>
 
-                            <div style="height:160px;overflow-y:scroll;border:1px solid #769dc4;padding:0 10px;width:600px">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed suscipit massa.
-                                    Aenean vel turpis tincidunt velit gravida venenatis. In iaculis urna non quam
-                                    tincidunt elementum. Nunc pellentesque aliquam dui, ac facilisis massa sollicitudin
-                                    et. Donec tincidunt vulputate ultrices. Duis eu risus ut ipsum auctor scelerisque
-                                    non quis ante. Nam tempor lobortis justo, et rhoncus mauris cursus et. Mauris auctor
-                                    congue lectus auctor ultrices. Aenean quis feugiat purus. Cras ornare vehicula
-                                    tempus. Nunc placerat, lorem adipiscing condimentum sagittis, augue velit ornare
-                                    odio, eget semper risus est et erat....
-                                </p></div>
+                            <div class="row">
+                                <label class="col-label control-label"><b
+                                        class="required need">*</b>${Translate.firstnameLabel}</label>
+
+                                <div class="col-input-md">
+                                    <div id="firstnameConfirmD" class="hiddenLabel confirmation"></div>
+                                </div>
+                            </div>
 
                             <button id="diagCloseBtn" type="button"
                                     data-dojo-type="dijit/form/Button" data-dojo-attach-point="_diagCloseBtn">

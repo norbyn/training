@@ -145,8 +145,10 @@ define([
             style: "width:200px;"
         }),
         _showDialog: function () {
-           // debbug;
-            alert();
+            query(".hiddenLabel.confirmation").addClass("form-control input-sm confirmText");
+
+            var values = dataForm.get('value');
+            query('#firstnameConfirmD')[0].innerHTML = values.firstname;
             registry.byId("terms").show();
         },
         // Hide the dialog
