@@ -205,8 +205,9 @@ select {
 
 .form-input {
     background: #F6F6F6;
-    padding-bottom: 5px;
+    padding-bottom: 45px;
     width: 100%;
+
 }
 
 .input-sm {
@@ -275,7 +276,13 @@ select {
     cursor: pointer;
 }
 
-
+form#dataForm .dijitValidationTextBox.dijitValidationTextBoxError .dijitValidationContainer{
+  display: none;
+}
+form#dataForm .messageError{
+    color:  red;
+    float : left;
+}
 
 
 
